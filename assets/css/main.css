@@ -2014,8 +2014,75 @@ body {
   padding-right: 16px;
 }
 
-html, body {
-  overflow-x: hidden;
+/* ===============================
+   Ultimate Header & Logo Fix - BuiltByTristn
+   Fully Responsive & Professional
+   =============================== */
+header {
+    display: flex;
+    justify-content: space-between; /* logo left, nav right */
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: #fff; /* change to your header bg if needed */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* space between logo image and text */
+}
+
+header .logo img {
+    max-width: 120px;   /* desktop logo width */
+    height: auto;       /* keeps aspect ratio */
+    flex-shrink: 0;     /* prevents shrinking */
+    object-fit: contain; /* prevents stretching */
+}
+
+header .logo h1 {
+    font-size: 1.6rem;  /* desktop font size */
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap; /* prevents wrapping */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* space between nav links or hamburger */
+}
+
+header .hamburger {
+    display: none; /* hide on desktop */
+    cursor: pointer;
+    z-index: 1001; /* always above header elements */
+}
+
+@media (max-width: 1024px) {
+    header .logo img {
+        max-width: 100px;
+    }
+    header .logo h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo img {
+        max-width: 90px; /* mobile logo size */
+    }
+    header .logo h1 {
+        font-size: 1.2rem; /* mobile text size */
+    }
+    header nav {
+        display: none; /* hide desktop nav on mobile */
+    }
+    header .hamburger {
+        display: block; /* show hamburger */
+    }
 }
 
 }
