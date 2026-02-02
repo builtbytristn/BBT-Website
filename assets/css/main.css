@@ -356,6 +356,7 @@ h6 {
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
+    display: block; /* make sure it shows on mobile */
     color: var(--nav-color);
     font-size: 28px;
     line-height: 0;
@@ -2147,6 +2148,75 @@ header .branding .logo img {
 
 .navmenu-active {
   transition: all 0.3s ease-in-out;
+}
+
+/* --------------------------------------------------------------
+# MOBILE NAV FIX
+-------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  /* Ensure hamburger shows */
+  .mobile-nav-toggle {
+    display: block !important;
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    z-index: 9999;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  /* Navmenu toggle logic */
+  .navmenu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.9);
+    padding-top: 60px;
+    overflow-y: auto;
+    z-index: 9998;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navmenu ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navmenu ul li {
+    margin-bottom: 10px;
+  }
+
+  .navmenu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--contrast-color);
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .navmenu ul li a:hover {
+    color: var(--accent-color);
+  }
+
+  /* When mobile menu is active */
+  .mobile-nav-active .navmenu {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------
+# LOGO FIX ON MOBILE
+-------------------------------------------------------------- */
+.header .logo img {
+  max-height: 50px; /* adjust this number to your logo’s actual height */
+  width: auto;      /* keep aspect ratio */
+  height: auto;     /* keep aspect ratio */
+  display: block;
 }
 
 }
