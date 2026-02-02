@@ -1967,5 +1967,15 @@ section,
     height: auto !important;      /* Keeps original proportions */
     display: block !important;    /* Center horizontally */
     margin: 0 auto !important;    /* Center horizontally */
+    html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 16px;
+}
+
 }
 
