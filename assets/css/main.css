@@ -2014,75 +2014,139 @@ body {
   padding-right: 16px;
 }
 
+/* Header & Branding */
+header.header {
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+header .branding .logo img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Nav Menu - Desktop */
+.navmenu ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navmenu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navmenu ul li a:hover,
+.navmenu ul li a.active {
+  color: #ff6600; /* Example accent color */
+}
+
+/* Dropdown */
+.navmenu ul li.dropdown > ul {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.navmenu ul li.dropdown:hover > ul {
+  display: block;
+}
+
+.navmenu ul li.dropdown ul li {
+  padding: 0;
+}
+
+.navmenu ul li.dropdown ul li a {
+  padding: 10px 20px;
+  display: block;
+  white-space: nowrap;
+}
+
+/* Mobile */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .navmenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navmenu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .navmenu ul li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    color: #333;
+  }
+
+  .navmenu.navmenu-active {
+    max-height: 1000px; /* enough for all items */
+  }
+
+  /* Dropdown on mobile */
+  .navmenu ul li.dropdown > ul {
+    position: static;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navmenu ul li.dropdown.dropdown-active > ul {
+    max-height: 500px; /* enough for sub-items */
+  }
+}
+
 /* ===============================
-   Ultimate Header & Logo Fix - BuiltByTristn
-   Fully Responsive & Professional
+   Smooth Dropdown Animation
    =============================== */
-header {
-    display: flex;
-    justify-content: space-between; /* logo left, nav right */
-    align-items: center;
-    padding: 0.8rem 1.5rem;
-    background-color: #fff; /* change to your header bg if needed */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    z-index: 1000;
+.dropdown > ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
 }
 
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* space between logo image and text */
+.dropdown.dropdown-active > ul {
+  max-height: 500px; /* Adjust if your dropdown is very tall */
 }
 
-header .logo img {
-    max-width: 120px;   /* desktop logo width */
-    height: auto;       /* keeps aspect ratio */
-    flex-shrink: 0;     /* prevents shrinking */
-    object-fit: contain; /* prevents stretching */
-}
-
-header .logo h1 {
-    font-size: 1.6rem;  /* desktop font size */
-    line-height: 1.2;
-    font-weight: 700;
-    margin: 0;
-    white-space: nowrap; /* prevents wrapping */
-}
-
-header nav {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* space between nav links or hamburger */
-}
-
-header .hamburger {
-    display: none; /* hide on desktop */
-    cursor: pointer;
-    z-index: 1001; /* always above header elements */
-}
-
-@media (max-width: 1024px) {
-    header .logo img {
-        max-width: 100px;
-    }
-    header .logo h1 {
-        font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    header .logo img {
-        max-width: 90px; /* mobile logo size */
-    }
-    header .logo h1 {
-        font-size: 1.2rem; /* mobile text size */
-    }
-    header nav {
-        display: none; /* hide desktop nav on mobile */
-    }
-    header .hamburger {
-        display: block; /* show hamburger */
-    }
+.navmenu-active {
+  transition: all 0.3s ease-in-out;
 }
 
 }
