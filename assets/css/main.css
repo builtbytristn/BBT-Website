@@ -2218,6 +2218,14 @@ header .branding .logo img {
   height: auto;     /* keep aspect ratio */
   display: block;
 }
+/* Logo Fix - Desktop & Mobile */
+.header .logo img {
+  max-width: 200px;   /* You can adjust this to make it bigger/smaller */
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Keeps the logo from stretching */
+  display: block;      /* Makes sure it aligns properly */
+}
 
 }
   
