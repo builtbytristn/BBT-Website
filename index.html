@@ -57,14 +57,14 @@
       </div>
     </div><!-- End Top Bar -->
 
-    <div class="branding d-flex align-items-cente">
+    <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-         <img src="assets/img/logo.png" 
-     alt="BuiltByTristn Logo" 
-     style="width: 200px; height: auto; display: block; margin: 0 auto;">
+       
+     
+    
 
 
           <h1 class="sitename">BuiltByTristn Digital Marketing</h1>
@@ -1167,6 +1167,19 @@
 
   <input type="hidden" name="form-name" value="contact">
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const nav = document.querySelector('#navmenu');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('navmenu-active'); // shows/hides menu
+    toggle.classList.toggle('bi-list');      // hamburger icon
+    toggle.classList.toggle('bi-x');         // X icon when open
+  });
+});
+</script>
 
 </body>
 
