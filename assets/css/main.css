@@ -1991,5 +1991,32 @@ body {
   max-width: 1200px;
   width: 100%;
   padding: 0 16px;
+
+  /* Ensure header never exceeds screen width */
+.header,
+.branding,
+.navmenu {
+  max-width: 100vw;
+  overflow: visible;
+}
+
+.mobile-nav-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.container {
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
 }
   
