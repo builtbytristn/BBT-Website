@@ -1180,6 +1180,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const navMenu = document.querySelector('#navmenu');
+
+  mobileNavToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('mobile-active'); // toggles menu visibility
+    mobileNavToggle.classList.toggle('bi-list'); // hamburger icon
+    mobileNavToggle.classList.toggle('bi-x');    // X icon when open
+  });
+
+  // Optional: dropdowns on mobile
+  const dropdownToggles = document.querySelectorAll('.toggle-dropdown');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth < 1200) {
+        e.preventDefault();
+        const parent = toggle.parentElement;
+        parent.classList.toggle('dropdown-active');
+        const submenu = parent.querySelector('ul');
+        if(submenu) submenu.classList.toggle('d-block');
+      }
+    });
+  });
+});
+</script>
 
 </body>
 

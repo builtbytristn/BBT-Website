@@ -310,7 +310,7 @@ h6 {
     font-weight: 500;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -408,8 +408,11 @@ h6 {
     display: block; /* make sure it shows on mobile */
     color: var(--nav-color);
     font-size: 28px;
+    position: relative;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
     line-height: 0;
-    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
   }
@@ -2377,8 +2380,99 @@ body {
     gap: 0.5rem;
   }
 }
-
-
+/* Mobile Nav Toggle and Responsive Fixes */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
 }
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  #navmenu ul {
+    display: none; /* hide menu by default on mobile */
+    flex-direction: column;
+    gap: 0;
+  }
+  #navmenu.mobile-active ul {
+    display: flex;
+  }
+  #navmenu li {
+    position: relative;
+  }
+  #navmenu li .toggle-dropdown {
+    float: right;
+  }
+  #navmenu li.dropdown ul {
+    display: none;
+    padding-left: 15px;
+  }
+  #navmenu li.dropdown.dropdown-active ul {
+    display: block;
+  }
+}
+
+/* Desktop: align nav links vertically centered with icons */
+@media (min-width: 1200px) {
+  #navmenu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  #navmenu li.dropdown ul {
+    left: 0;
+  }
+}
+/*--------------------------------------------------------------
+# Your existing main.css content up to the last complete block
+# I’ll assume everything you sent above is included, cleaned, and closed properly.
+--------------------------------------------------------------*/
+
+/* Fix truncated FAQ active background */
+.faq .faq-container .faq-active {
+  background-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# MOBILE MENU & DROPDOWN FIXES (Paste at the very bottom)
+--------------------------------------------------------------*/
+
+/* Ensure mobile dropdown toggles open/close correctly */
+.navmenu .dropdown-active ul {
+  display: block !important;
+}
+
+.navmenu .dropdown ul {
+  display: none;
+}
+
+.navmenu .dropdown>.dropdown-active ul {
+  display: block;
+}
+
+/* Ensure mobile nav opens correctly when toggled */
+.mobile-nav-toggle {
+  cursor: pointer;
+}
+
+.mobile-nav-active .navmenu>ul {
+  display: block !important;
+}
+
+/* Optional: Smooth dropdown animation for mobile */
+.navmenu .dropdown ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.navmenu .dropdown>.dropdown-active ul {
+  max-height: 500px; /* adjust if needed */
+}
+
+
+
  
 
